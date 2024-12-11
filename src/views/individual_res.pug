@@ -1,0 +1,79 @@
+html
+	head
+		title Restaurant Page
+	
+	body(onload="init()")
+		include header
+		
+		br
+		br
+		|Name: 
+		input(type="textbox", id="resName", value=name, onchange="restaurant_info()")
+		br
+		br
+		|Delivery Fee: 
+		input(type="textbox", id="resDelivery", value=delivery_fee, onchange="restaurant_info()")
+		br
+		br
+		|Minimum order price: 
+		input(type="textbox", id="resMinimum", value=min_order, onchange="restaurant_info()")
+		br
+		br
+		
+		div(id="menu")
+		
+			p(style="font-size:25px") Menu:
+			br
+			
+			each key, value in menu
+				div(id=value)
+					p(style="font-size:20px") #{value}:
+					
+					each more_key, more_value in key
+						|ID: #{more_value}, #{more_key.name}
+						br
+						|#{more_key.description}
+						br
+						|Price: $#{more_key.price.toFixed(2)}
+						br
+						br
+				br
+				br
+		
+		p(style="font-size:20px") Add Category:
+		
+		input(type="textbox", id="addCategory")
+		input(type="submit", value="Add Category" onclick="addCategory()")
+		br
+		br
+		
+		
+		p(style="font-size:20px") Add Menu Item:
+		
+		select(id="category_list")
+			each key, value in menu
+				option(value=value) #{value}
+		br
+		br
+		
+		|Name: 
+		input(type="textbox", id="new_item_name")
+		br
+		br
+		|Description: 
+		input(type="textbox", id="new_item_description")
+		br
+		br
+		|Price: 
+		input(type="textbox", id="new_item_price")
+		br
+		br
+		input(type="submit", value="Add Item" onclick="addItem()")
+		br
+		br
+		
+		input(type="submit", value="Save" onclick="saveRestaurant()")
+		br
+		br
+		
+		script(src='js/res_client.js')

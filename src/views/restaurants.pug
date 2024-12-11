@@ -1,0 +1,11 @@
+html
+	head
+		title Browse Restaurants
+	
+	body 
+		include header
+	
+		br
+		each restaurant in restaurants
+			a(href="restaurants/"+restaurant.id, style='font-size:25px') #{restaurant.name}
+			br

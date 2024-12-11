@@ -1,0 +1,27 @@
+html
+	head
+		title Add Restaurant
+	
+	body 
+		include header
+	
+		br
+		
+		|Name: 
+		input(type="textbox", id="resName") 
+		br
+		br
+		|Delivery Fee: 
+		input(type="textbox", id="resDelivery")
+		br
+		br
+		|Minimum Order: 
+		input(type="textbox", id="resMinimum")
+		br
+		br
+		input(type="submit", value="Submit" onclick="sendInfo()")
+		br
+		br
+		div(id="warning")
+		
+		script(src='js/add_client.js')
